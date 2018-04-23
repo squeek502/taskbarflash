@@ -7,16 +7,16 @@
 #define INFINITE_FLASHES 0
 #define DEFAULT_BLINK_RATE 0
 
-static void usage(const char *program)
+static void usage(FILE *const stream, const char *program)
 {
-	printf("Usage: %s [options] [num_flashes [flash_rate_ms]]\n \
+	fprintf(stream, "Usage: %s [options] [num_flashes [flash_rate_ms]]\n \
 \n\
   Options:\n\
     -h, --help          Print this help screen\n\
-    -t, --tray          Flash the taskbar entry (default)\n\
+    -t, --tray          Flash the taskbar icon (default)\n\
     -w, --window        Flash the window caption\n\
     -c, --caption       Alias for --window\n\
-    --all               Flash both the taskbar entry and the window caption\n", program);
+    --all               Flash both the taskbar icon and the window caption\n", program);
 }
 
 int main(int argc, const char* argv[])
@@ -34,7 +34,7 @@ int main(int argc, const char* argv[])
 			_stricmp("--usage", flagsArg) == 0 ||
 			_stricmp("-?", flagsArg) == 0)
 		{
-			usage(argv[0]);
+			usage(stdout, argv[0]);
 			return EXIT_SUCCESS;
 		}
 		else if (_stricmp("--tray", flagsArg) == 0 ||
@@ -59,8 +59,8 @@ int main(int argc, const char* argv[])
 		}
 		else
 		{
-			fprintf(stderr, "Unknown option: %s\n", flagsArg);
-			usage(argv[0]);
+			fprintf(stderr, "Unknown option: %s\n\n", flagsArg);
+			usage(stderr, argv[0]);
 			return EXIT_FAILURE;
 		}
 		argStart++;

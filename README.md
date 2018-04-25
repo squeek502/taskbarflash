@@ -15,7 +15,7 @@ Usage: taskbarflash [options] [num_flashes [flash_rate_ms]]
 
 ## Installation
 - [Download `taskbarflash.exe` from the releases page](https://github.com/squeek502/taskbarflash/releases/latest)
-- To be able to call `taskbarflash` from any `.bat` file, put `taskbarflash.exe` somewhere in your system's [`PATH` environment variable](https://en.wikipedia.org/wiki/PATH_\(variable\)).
+- To be able to call `taskbarflash` from any `.bat` file, put `taskbarflash.exe` in a directory that is included in your system's [`PATH` environment variable](https://en.wikipedia.org/wiki/PATH_\(variable\)).
 
 ## Building
 To build taskbarflash, you'll need to install [`cmake`](https://cmake.org) and some version of [Visual Studio](https://www.visualstudio.com/).
